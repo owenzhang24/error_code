@@ -1,0 +1,262 @@
+
+- Error code
+- 错误代码说明
+- 错误返回值格式
+- JSON
+- 
+- {
+- 	"request" : "/statuses/home_timeline.json",
+- 	"error_code" : "20502",
+- 	"error" : "Need you follow uid."
+- }
+- 
+- 错误代码对照表
+-
+- ### 常用错误代码
+- 0/00000 Succeed   成功访问
+- 10006	Source paramter (appkey/token) is missing	缺少source (appkey/token) 参数
+- 10008	Param error	参数错误
+- 10014	Insufficient app permissions	应用的接口访问权限受限,访问的资源被禁止
+- 20003	User does not exists	用户不存在
+- 20033	Nonconformity 不符合条件
+- 20606	Object already exists	记录已存在
+- 20607	DB error, please contact the administator	数据库错误，请联系系统管理员
+- 21310	Signature invalid	签名值不合法
+- 21603	Applications send notice over the restrictions	通知(短信邮件)发送达到限制
+
+-
+- ### 系统级错误代码
+- 错误代码	错误信息	详细描述
+- 10001	System error	系统错误
+- 10002	Service unavailable	服务暂停
+- 10003	Remote service error	远程服务错误
+- 10004	IP limit	IP限制不能请求该资源
+- 10005	Permission denied, need a high level appkey	该资源需要appkey拥有授权
+- 10006	Source paramter (appkey/token) is missing	缺少source (appkey/token) 参数
+- 10007	Unsupport mediatype (%s)	不支持的MediaType (%s)
+- 10008	Param error, see doc for more info	参数错误，请参考API文档
+- 10009	Too many pending tasks, system is busy	任务过多，系统繁忙
+- 10010	Job expired	任务超时，请求过期
+- 10011	RPC error	RPC错误
+- 10012	Illegal request	非法请求
+- 10013	Invalid weibo user	不合法的用户
+- 10014	Insufficient app permissions	应用的接口访问权限受限
+- 10016	Miss required parameter (%s) , see doc for more info	缺失必选参数 (%s)，请参考API文档
+- 10017	Parameter (%s)'s value invalid, expect (%s) , but get (%s) , see doc for more info	参数值非法，存在非法字符，需为 (%s)，实际为 (%s)，请参考API文档
+- 10018	Request body length over limit	请求长度超过限制
+- 10020	Request api not found	接口不存在
+- 10021	HTTP method is not suported for this request	请求的HTTP METHOD不支持，请检查是否选择了正确的POST/GET方式
+- 10022	IP requests out of rate limit	IP请求频次超过上限
+- 10023	User requests out of rate limit	用户请求频次超过上限
+- 10024	User requests for (%s) out of rate limit	用户请求特殊接口 (%s) 频次超过上限
+- 
+- ### 服务级错误代码
+- 错误代码	错误信息	详细描述
+- 20001	IDs is null	IDs参数为空
+- 20002	Uid parameter is null	Uid参数为空
+- 20003	User does not exists	用户不存在
+- 20005	Unsupported image type, only suport JPG, GIF, PNG	不支持的图片类型，仅仅支持JPG、GIF、PNG
+- 20006	Image size too large	图片太大
+- 20007	Does multipart has image	请确保使用multpart上传图片
+- 20008	Content is null	内容为空
+- 20009	IDs is too many	IDs参数太长了
+- 20012	Text too long, please input text less than 140 characters	输入文字太长，请确认不超过140个字符
+- 20013	Text too long, please input text less than 300 characters	输入文字太长，请确认不超过300个字符
+- 20014	Param is error, please try again	安全检查参数有误，请再调用一次
+- 20015	Account or ip or app is illgal, can not continue	账号、IP或应用非法，暂时无法完成此操作
+- 20016	Out of limit	发布内容过于频繁
+- 20017	Repeat content	提交相似的信息
+- 20018	Contain illegal website	包含非法网址
+- 20019	Repeat conetnt	提交相同的信息
+- 20020	Contain advertising	包含广告信息
+- 20021	Content is illegal	包含非法内容
+- 20022	Your ip's behave in a comic boisterous or unruly manner	此IP地址上的行为异常
+- 20031	Test and verify	需要验证码
+- 20032	Update success, while server slow now, please wait 1-2 minutes	发布成功，目前服务器可能会有延迟，请耐心等待1-2分钟
+- 20033	Nonconformity 不符合条件
+- 
+-  **商品错误代码** 
+- -	-	-
+- 20101	Target weibo does not exist	不存在的商品
+- 20102	Not your own weibo	不是你发布的商品
+- 20103	Can't repost yourself weibo	不能转发自己的商品
+- 20104	Illegal weibo	不合法的商品
+- 20109	Weibo id is null	商品ID为空
+- 20111	Repeated weibo text	不能发布相同的商品
+- -	-	-
+- 20201	Target weibo comment does not exist	不存在的商品评论
+- 20202	Illegal comment	不合法的评论
+- 20203	Not your own comment	不是你发布的评论
+- 20204	Comment id is null	评论ID为空
+- -	-	-
+- 20301	Can't send direct message to user who is not your follower	不能给不是你粉丝的人发私信
+- 20302	Illegal direct message	不合法的私信
+- 20303	Not your own direct message	不是属于你的私信
+- 20305	Direct message does not exist	不存在的私信
+- 20306	Repeated direct message text	不能发布相同的私信
+- 20307	Illegal direct message id	非法的私信ID
+- -	-	-
+- 20401	Domain not exist	域名不存在
+- 20402	Wrong verifier	Verifier错误
+- 20405 Forbidden 访问的资源被禁止
+- -	-	-
+- 20501	Source_user or target_user does not exists	参数source_user或者target_user的用户不存在
+- 20502	Please input right target user id or screen_name	必须输入目标用户id或者screen_name
+- 20503	Need you follow user_id	参数user_id必须是你关注的用户
+- 20504	Can not follow yourself	你不能关注自己
+- 20505	Social graph updates out of rate limit	加关注请求超过上限
+- 20506	Already followed	已经关注此用户
+- 20507	Verification code is needed	需要输入验证码
+- 20508	According to user privacy settings,you can not do this	根据对方的设置，你不能进行此操作
+- 20509	Private friend count is out of limit	悄悄关注个数到达上限
+- 20510	Not private friend	不是悄悄关注人
+- 20511	Already followed privately	已经悄悄关注此用户
+- 20512	Please delete the user from you blacklist before you follow the user	你已经把此用户加入黑名单，加关注前请先解除
+- 20513	Friend count is out of limit!	你的关注人数已达上限
+- 20522	Not followed	还未关注此用户
+- 20523	Not followers	还不是粉丝
+- 20524	Hi Superman, you have cancelled concerning a lot of people, have a think of how to make other people concern about you! ! If you have any questions, please contact Sina customer service: 400 690 0000	hi 超人，你今天已经取消关注很多喽，接下来
+- -	-	-
+- 20601	List name too long, please input text less than 10 characters	列表名太长，请确保输入的文本不超过10个字符
+- 20602	List description too long, please input text less than 70 characters	列表描叙太长，请确保输入的文本不超过70个字符
+- 20603	List does not exists	列表不存在
+- 20604	Only the owner has the authority	不是列表的所属者
+- 20605	Illegal list name or list description	列表名或描叙不合法
+- 20606	Object already exists	记录已存在
+- 20607	DB error, please contact the administator	数据库错误，请联系系统管理员
+- 20608	List name duplicate	列表名冲突
+- 20610	Does not support private list	目前不支持私有分组
+- 20611	Create list error	创建列表失败
+- 20612	Only support private list	目前只支持私有分组
+- 20613	You hava subscriber too many lists	订阅列表达到上限
+- 20614	Too many lists, see doc for more info	创建列表达到上限，请参考API文档
+- 20615	Too many members, see doc for more info	列表成员上限，请参考API文档
+- -	-	-
+- 20701	Repeated tag text	不能提交相同的收藏标签
+- 20702	Tags is too many	最多两个收藏标签
+- 20703	Illegal tag name	收藏标签名不合法
+- -	-	-
+- 20801	Trend_name is null	参数trend_name是空值
+- 20802	Trend_id is null	参数trend_id是空值
+- -	-	-
+- 20901	Error: in blacklist	错误:已经添加了黑名单
+- 20902	Error: Blacklist limit has been reached.	错误:已达到黑名单上限
+- 20903	Error: System administrators can not be added to the blacklist.	错误:不能添加系统管理员为黑名单
+- 20904	Error: Can not add yourself to the blacklist.	错误:不能添加自己为黑名单
+- 20905	Error: not in blacklist	错误:不在黑名单中
+- -	-	-
+- 21001	Tags parameter is null	标签参数为空
+- 21002	Tags name too long	标签名太长，请确保每个标签名不超过14个字符
+- -	-	-
+- 21101	Domain parameter is error	参数domain错误
+- 21102	The phone number has been used	该手机号已经被使用
+- 21103	The account has bean bind phone	该用户已经绑定手机
+- 21104	Wrong verifier	Verifier格式错误
+- -	-	-
+- 21301	Auth faild	认证失败
+- 21302	Username or password error	用户名或密码不正确
+- 21303	Username and pwd auth out of rate limit	用户名密码认证超过请求限制
+- 21304	Version rejected	版本号错误
+- 21305	Parameter absent	缺少必要的参数
+- 21306	Parameter rejected	OAuth参数被拒绝
+- 21307	Timestamp refused	时间戳不正确
+- 21308	Nonce used	参数nonce已经被使用
+- 21309	Signature method rejected	签名算法不支持
+- 21310	Signature invalid	签名值不合法
+- 21311	Consumer key unknown	参数consumer_key不存在
+- 21312	Consumer key refused	参数consumer_key不合法
+- 21313	Miss consumer key	参数consumer_key缺失
+- 21314	Token used	Token已经被使用
+- 21315	Token expired	Token已经过期
+- 21316	Token revoked	Token不合法
+- 21317	Token rejected	Token不合法
+- 21318	Verifier fail	Pin码认证失败
+- 21319	Accessor was revoked	授权关系已经被解除
+- 21320	OAuth2 must use https	使用OAuth2必须使用https
+- 21321	Applications over the unaudited use restrictions	未审核的应用使用人数超过限制
+- 21327	Expired token	token过期
+- 21335	Request uid's value must be the current user	uid参数仅允许传入当前授权用户uid
+- -	-	-
+- 21501	Urls is null	参数urls是空的
+- 21502	Urls is too many	参数urls太多了
+- 21503	IP is null	IP是空值
+- 21504	Url is null	参数url是空值
+- -	-	-
+- 21601	Manage notice error, need auth	需要系统管理员的权限
+- 21602	Contains forbid world	含有敏感词
+- 21603	Applications send notice over the restrictions	通知(短信邮件)发送达到限制
+- -	-	-
+- 21701	Manage remind error, need auth	提醒失败，需要权限
+- 21702	Invalid category	无效分类
+- 21703	Invalid status	无效状态码
+- -	-	-
+- 21901	Geo code input error	地理信息输入错误
+- 
+- -	-	-
+- -	-	-
+- -	-	-
+- ###  **常见HTTP请求响应错误码大全 ** 
+-  
+- #### 常见
+- 0：请求响应正常。
+- 200：服务器响应正常。
+- 304：该资源在上次请求之后没有任何修改（这通常用于浏览器的缓存机制，使用GET请求时尤其需要注意）。
+- 400：无法找到请求的资源。 
+- 401：访问资源的权限不够。 
+- 403：没有权限访问资源。 
+- 404：需要访问的资源不存在。 
+- 405：需要访问的资源被禁止。 
+- 407：访问的资源需要代理身份验证。 
+- 412：一个或多个请求头字段在当前请求中错误，参数错误 
+- 414：请求的URL太长。 
+- 415——请求资源不支持请求项目格式 
+- 500：服务器内部错误。 
+- 506——数据库操作失败
+- -	-	- 
+- #### 补全状态码避免再去搜 
+- 100——客户必须继续发出请求 
+- 101——客户要求服务器根据请求转换HTTP协议版本 
+- -	-	-
+- 200——交易成功 
+- 201——提示知道新文件的URL 
+- 202——接受和处理、但处理未完成 
+- 203——返回信息不确定或不完整 
+- 204——请求收到，但返回信息为空 
+- 205——服务器完成了请求，用户代理必须复位当前已经浏览过的文件 
+- 206——服务器已经完成了部分用户的GET请求 
+- -	-	-
+- 300——请求的资源可在多处得到 
+- 301——删除请求数据 
+- 302——在其他地址发现了请求数据 
+- 303——建议客户访问其他URL或访问方式 
+- 304——客户端已经执行了GET，但文件未变化 
+- 305——请求的资源必须从服务器指定的地址得到 
+- 306——前一版本HTTP中使用的代码，现行版本中不再使用 
+- 307——申明请求的资源临时性删除
+- -	-	-
+- 400——错误请求，如语法错误 
+- 401——请求授权失败 
+- 402——保留有效ChargeTo头响应 
+- 403——请求不允许 
+- 404——没有发现文件、查询或URl 
+- 405——用户在Request-Line字段定义的方法不允许 
+- 406——根据用户发送的Accept拖，请求资源不可访问 
+- 407——类似401，用户必须首先在代理服务器上得到授权 
+- 408——客户端没有在用户指定的饿时间内完成请求 
+- 409——对当前资源状态，请求不能完成 
+- 410——服务器上不再有此资源且无进一步的参考地址 
+- 411——服务器拒绝用户定义的Content-Length属性请求 
+- 412——一个或多个请求头字段在当前请求中错误 
+- 413——请求的资源大于服务器允许的大小 
+- 414——请求的资源URL长于服务器允许的长度 
+- 415——请求资源不支持请求项目格式 
+- 416——请求中包含Range请求头字段，在当前请求资源范围内没有range指示值，请求也不包含If-Range请求头字段 
+- 417——服务器不满足请求Expect头字段指定的期望值，如果是代理服务器，可能是下一级服务器不能满足请求
+- -	-	-
+- 500——服务器产生内部错误 
+- 501——服务器不支持请求的函数 
+- 502——服务器暂时不可用，有时是为了防止发生系统过载 
+- 503——服务器过载或暂停维修 
+- 504——关口过载，服务器使用另一个关口或服务来响应用户，等待时间设定值较长 
+- 505——服务器不支持或拒绝支请求头中指定的HTTP版本 
+- 506——数据库操作失败
